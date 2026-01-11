@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en" manifest="cache.appcache"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  
+  <title>2048 AI</title>
+
+  <link href="./2048 AI_files/main.css" rel="stylesheet" type="text/css">
+  <link rel="shortcut icon" href="https://aj-r.github.io/2048-AI/favicon.ico">
+  <link rel="apple-touch-icon" href="https://aj-r.github.io/2048-AI/meta/apple-touch-icon.png">
+  <link rel="apple-touch-startup-image" href="https://aj-r.github.io/2048-AI/meta/apple-touch-startup-image-640x1096.png" media="(device-width: 320px) and (device-height: 568px) and (-webkit-device-pixel-ratio: 2)"> <!-- iPhone 5+ -->
+  <link rel="apple-touch-startup-image" href="https://aj-r.github.io/2048-AI/meta/apple-touch-startup-image-640x920.png" media="(device-width: 320px) and (device-height: 480px) and (-webkit-device-pixel-ratio: 2)"> <!-- iPhone, retina -->
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black">
+
+  <meta name="HandheldFriendly" content="True">
+  <meta name="MobileOptimized" content="320">
+  <meta name="viewport" content="width=device-width, target-densitydpi=160dpi, initial-scale=1.0, maximum-scale=1, user-scalable=no, minimal-ui">
+  <meta name="format-detection" content="telephone=no">
+
+  <meta property="og:title" content="2048 AI">
+  <meta property="og:site_name" content="2048 AI">
+  <meta property="og:description" content="Watch the AI join the numbers and get to the 2048 tile!">
+  <meta property="og:image" content="http://aj-r.github.io/2048-AI/meta/og_image.png">
+</head>
+<body cz-shortcut-listen="true">
+ 
+  <script src="./2048 AI_files/jquery-1.10.2.min.js"></script>
+  <div class="container">
+    <div class="heading">
+      <h1 class="title">2048 AI</h1>
+      <div class="scores-container">
+        <div class="score-container">0<div class="score-addition">+0</div></div>
+        <div class="best-container">0</div>
+      </div>
+    </div>
+
+    <div class="above-game">
+      <p>Guarda l'intelligenza artificiale unire i numeri e raggiungere la tessera più alta possibile!</p>
+    </div>
+
+    <div class="game-container">
+      <div class="game-message">
+        <p>Hai perso!</p>
+        <div class="lower">
+	        <a class="keep-playing-button">Continua</a>
+          <a class="retry-button">Riprova</a>
+        </div>
+      </div>
+
+      <div class="grid-container">
+        <div class="grid-row">
+          <div class="grid-cell"></div>
+          <div class="grid-cell"></div>
+          <div class="grid-cell"></div>
+          <div class="grid-cell"></div>
+        </div>
+        <div class="grid-row">
+          <div class="grid-cell"></div>
+          <div class="grid-cell"></div>
+          <div class="grid-cell"></div>
+          <div class="grid-cell"></div>
+        </div>
+        <div class="grid-row">
+          <div class="grid-cell"></div>
+          <div class="grid-cell"></div>
+          <div class="grid-cell"></div>
+          <div class="grid-cell"></div>
+        </div>
+        <div class="grid-row">
+          <div class="grid-cell"></div>
+          <div class="grid-cell"></div>
+          <div class="grid-cell"></div>
+          <div class="grid-cell"></div>
+        </div>
+      </div>
+
+      <div class="tile-container"><div class="tile tile-2 tile-position-1-3 tile-new"><div class="tile-inner">2</div></div><div class="tile tile-4 tile-position-3-1"><div class="tile-inner">4</div></div><div class="tile tile-2 tile-position-3-2"><div class="tile-inner">2</div></div><div class="tile tile-128 tile-position-4-1"><div class="tile-inner">128</div></div><div class="tile tile-128 tile-position-4-1"><div class="tile-inner">128</div></div><div class="tile tile-256 tile-position-4-1 tile-merged"><div class="tile-inner">256</div></div><div class="tile tile-8 tile-position-4-2"><div class="tile-inner">8</div></div><div class="tile tile-4 tile-position-4-3"><div class="tile-inner">4</div></div><div class="tile tile-2 tile-position-4-4"><div class="tile-inner">2</div></div></div>
+      
+      <div class="ai-panel">
+        <a class="pause-button">Pausa</a>
+        <div class="ai-panel-header">AI Modalità:</div>
+        <label title="Fancy intelligentness"><input type="radio" name="ai-mode" class="smart-ai-button" checked="">Smart</label><br>
+        <label title="Up, Left, Up, Left, etc."><input type="radio" name="ai-mode" class="algorithm-ai-button">Algorithm-based</label><br>
+        <label title="Up &gt; Left &gt; Right &gt; Down"><input type="radio" name="ai-mode" class="priority-ai-button">Priority-based</label><br>
+        <label title="Random number generator!"><input type="radio" name="ai-mode" class="rng-ai-button">Random</label><br>
+        <div class="ai-panel-header">Speed:</div>
+        <label><input type="radio" name="ai-speed" class="full-speed-button">Full</label><br>
+        <label><input type="radio" name="ai-speed" class="fast-speed-button" checked="">Fast</label><br>
+        <label><input type="radio" name="ai-speed" class="slow-speed-button">Slow</label><br>
+        <div class="ai-panel-header">Tile generator:</div>
+        <label><input type="radio" name="ai-tilegen" class="random-tile-button" checked="">Random</label><br>
+        <label><input type="radio" name="ai-tilegen" class="evil-tile-button">Evil</label><br>
+        <div class="ai-panel-header">Highest numbers:</div>
+        <div class="stats-container"><div class="stats-number">1024:</div><div class="stats-value">1 (33.3%)</div><div class="stats-number">2048:</div><div class="stats-value">1 (33.3%)</div><div class="stats-number">4096:</div><div class="stats-value">1 (33.3%)</div></div>
+        
+      </div>
+    </div>
+
+
+    <div class="copy-json"></div>
+  </div>
+
+  <script src="./2048 AI_files/bind_polyfill.js"></script>
+  <script src="./2048 AI_files/classlist_polyfill.js"></script>
+  <script src="./2048 AI_files/animframe_polyfill.js"></script>
+  <script src="./2048 AI_files/basic_ai.js"></script>
+  <script src="./2048 AI_files/smart_ai.js"></script>
+  <script src="./2048 AI_files/ai_input_manager.js"></script>
+  <script src="./2048 AI_files/html_actuator.js"></script>
+  <script src="./2048 AI_files/grid.js"></script>
+  <script src="./2048 AI_files/tile.js"></script>
+  <script src="./2048 AI_files/local_storage_manager.js"></script>
+  <script src="./2048 AI_files/game_manager.js"></script>
+  <script src="./2048 AI_files/application.js"></script>
+
+
+</body></html>
