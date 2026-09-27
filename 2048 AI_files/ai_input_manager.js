@@ -196,10 +196,10 @@ AIInputManager.prototype.pauseOrResume = function (event) {
   }
   if (this.runningAI) {
     this.stopAI();
-    $(".pause-button").text("Riprendi");
+    $(".pause-button").text("Resume");
   } else {
     this.startAI();
-    $(".pause-button").text("Pausa");
+    $(".pause-button").text("Pause");
   }
 };
 
