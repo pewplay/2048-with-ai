@@ -1,14 +1,42 @@
 {
   "$schema": "https://raw.githubusercontent.com/pewplay/pewplay/main/schema/game.schema.json",
   "title": "2048 AI",
-  "description": "Watch an AI play 2048: choose its strategy and speed and see how far it can merge the tiles. Free in your browser.",
+  "description": "Watch an AI solve 2048 and experiment with its algorithms and speed.",
+  "about": "2048 AI is a browser game where you watch the AI combine matching numbered tiles. Change its algorithm and speed from the controls, or play with the arrow keys.\n\nStart a round in your browser and use the controls below to play.",
+  "howToPlay": "Watch the AI combine matching numbered tiles. Change its algorithm and speed from the controls, or play with the arrow keys.",
+  "controls": [
+    {
+      "input": "Arrow keys",
+      "action": "Move tiles manually"
+    },
+    {
+      "input": "AI controls",
+      "action": "Choose algorithm, speed and pause"
+    }
+  ],
+  "tips": [
+    "Use arrow keys to move tiles manually.",
+    "Try another round to practice the timing and strategy."
+  ],
+  "faq": [
+    {
+      "question": "How do I play 2048 AI?",
+      "answer": "Watch the AI combine matching numbered tiles. Change its algorithm and speed from the controls, or play with the arrow keys."
+    },
+    {
+      "question": "Can I play 2048 AI in a browser?",
+      "answer": "Yes. Open the game page and play without installing an app."
+    }
+  ],
   "category": "Puzzle",
   "tags": [
     "2048",
-    "ai",
+    "AI",
     "numbers",
     "puzzle"
   ],
-  "author": "PewPlay",
-  "playMode": "SinglePlayer"
+  "playMode": "SinglePlayer",
+  "orientation": "any",
+  "cover": "cover.png",
+  "draft": true
 }

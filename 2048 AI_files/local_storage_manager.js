@@ -19,15 +19,15 @@ window.fakeStorage = {
 };
 
 function LocalStorageManager() {
-  this.bestScoreKey     = "bestScore";
-  this.gameStateKey     = "gameState";
+  this.bestScoreKey     = "2048-with-ai:bestScore";
+  this.gameStateKey     = "2048-with-ai:gameState";
 
   var supported = this.localStorageSupported();
   this.storage = supported ? window.localStorage : window.fakeStorage;
 }
 
 LocalStorageManager.prototype.localStorageSupported = function () {
-  var testKey = "test";
+  var testKey = "2048-with-ai:test";
   var storage = window.localStorage;
 
   try {
