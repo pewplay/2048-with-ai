@@ -1,0 +1,14 @@
+{
+  "$schema": "https://raw.githubusercontent.com/pewplay/pewplay/main/schema/game.schema.json",
+  "title": "2048 AI",
+  "description": "Watch an AI play 2048: choose its strategy and speed and see how far it can merge the tiles. Free in your browser.",
+  "category": "Puzzle",
+  "tags": [
+    "2048",
+    "ai",
+    "numbers",
+    "puzzle"
+  ],
+  "author": "PewPlay",
+  "playMode": "SinglePlayer"
+}
