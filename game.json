@@ -1,0 +1,59 @@
+{
+  "$schema": "https://raw.githubusercontent.com/pewplay/pewplay/main/schema/game.schema.json",
+  "title": "2048 AI",
+  "description": "Watch a computer AI play 2048 on its own: pick its strategy, speed and an evil tile mode, then track its best tiles. Free in your browser.",
+  "about": "2048 AI turns the famous number puzzle into something you watch instead of play. A computer player slides and merges the tiles by itself, game after game, and you choose how it thinks. The Smart AI looks three moves ahead and scores every board, while the Algorithm, Priority and Random modes follow simple fixed rules, so you can see how much a real strategy matters.\n\nYou can run the AI slowly to follow every decision, fast, or at full speed to rack up games quickly. Switch the tile generator to Evil and new tiles are placed where they get in the way the most. After each game over, a new one starts automatically and the panel records the highest tile reached every time.\n\nIt is a relaxing idle toy and a fun way to learn 2048 tactics from a machine.",
+  "howToPlay": "The AI plays 2048 by itself: tiles with the same number merge when they slide together, and the game ends when no move is left. Use the side panel to choose the AI mode, the speed and the tile generator at any time. Pause stops the AI, and a new game starts automatically a few seconds after each game over.",
+  "controls": [
+    {
+      "input": "Click / Tap",
+      "action": "Choose AI mode, speed and tile generator"
+    },
+    {
+      "input": "Pause button",
+      "action": "Pause or resume the AI"
+    },
+    {
+      "input": "Try again",
+      "action": "Start a new game after a game over"
+    }
+  ],
+  "tips": [
+    "Use Slow speed to see how the Smart AI keeps its biggest tile in a corner.",
+    "Compare Smart with Random at Full speed to see how much strategy raises the highest tile.",
+    "Turn on the Evil tile generator to watch the AI cope with tiles placed to block it.",
+    "Leave it running for a while and check Highest numbers to see how often each tile is reached."
+  ],
+  "faq": [
+    {
+      "question": "Is 2048 AI free to play?",
+      "answer": "Yes. It is completely free and runs in your browser with no download or account."
+    },
+    {
+      "question": "Does it work on phones and tablets?",
+      "answer": "Yes. The board and the settings panel fit on a phone screen, and you control everything with taps."
+    },
+    {
+      "question": "Can I move the tiles myself?",
+      "answer": "No, this version is made for watching: the AI makes every move, and you choose its strategy, speed and tile generator."
+    }
+  ],
+  "category": "Puzzle",
+  "tags": [
+    "2048",
+    "ai",
+    "number puzzle",
+    "simulation",
+    "idle",
+    "strategy"
+  ],
+  "author": "PewPlay",
+  "playMode": "SinglePlayer",
+  "orientation": "any",
+  "cover": "cover.png",
+  "screenshots": [
+    "screenshots/1.png",
+    "screenshots/2.png",
+    "screenshots/3.png"
+  ]
+}
