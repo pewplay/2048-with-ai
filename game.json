@@ -3,19 +3,23 @@
   "title": "2048 AI",
   "description": "Watch a computer AI play 2048 on its own: pick its strategy, speed and an evil tile mode, then track its best tiles. Free in your browser.",
   "about": "2048 AI turns the famous number puzzle into something you watch instead of play. A computer player slides and merges the tiles by itself, game after game, and you choose how it thinks. The Smart AI looks three moves ahead and scores every board, while the Algorithm, Priority and Random modes follow simple fixed rules, so you can see how much a real strategy matters.\n\nYou can run the AI slowly to follow every decision, fast, or at full speed to rack up games quickly. Switch the tile generator to Evil and new tiles are placed where they get in the way the most. After each game over, a new one starts automatically and the panel records the highest tile reached every time.\n\nIt is a relaxing idle toy and a fun way to learn 2048 tactics from a machine.",
-  "howToPlay": "The AI plays 2048 by itself: tiles with the same number merge when they slide together, and the game ends when no move is left. Use the side panel to choose the AI mode, the speed and the tile generator at any time. Pause stops the AI, and a new game starts automatically a few seconds after each game over.",
+  "howToPlay": "The AI plays 2048 by itself: tiles with the same number merge when they slide together, and the game ends when no move is left. Use the panels next to the board to choose the AI mode, the speed and how new tiles appear, at any time. Pause stops the AI and New game starts over. After each game over the next game starts automatically after five seconds, and the panel records the highest tile reached in every game.",
   "controls": [
     {
       "input": "Click / Tap",
-      "action": "Choose AI mode, speed and tile generator"
+      "action": "Choose AI mode, speed and new tile generator"
     },
     {
-      "input": "Pause button",
+      "input": "Pause button / Space / P",
       "action": "Pause or resume the AI"
     },
     {
-      "input": "Try again",
-      "action": "Start a new game after a game over"
+      "input": "New game button / N",
+      "action": "Start a new game right away"
+    },
+    {
+      "input": "Start now",
+      "action": "Skip the wait after a game over"
     }
   ],
   "tips": [
@@ -31,11 +35,15 @@
     },
     {
       "question": "Does it work on phones and tablets?",
-      "answer": "Yes. The board and the settings panel fit on a phone screen, and you control everything with taps."
+      "answer": "Yes. The board and the settings fit on a phone or tablet screen in portrait and landscape, and you control everything with taps."
     },
     {
       "question": "Can I move the tiles myself?",
       "answer": "No, this version is made for watching: the AI makes every move, and you choose its strategy, speed and tile generator."
+    },
+    {
+      "question": "Are the statistics saved?",
+      "answer": "Yes. The highest tile of every finished game, the best score and your chosen settings are remembered in this browser, so the list keeps growing each time you come back."
     }
   ],
   "category": "Puzzle",

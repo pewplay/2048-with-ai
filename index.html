@@ -2,100 +2,91 @@
 <html lang="en">
 <head>
   <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
   <title>2048 AI</title>
-  <link href="./2048 AI_files/main.css" rel="stylesheet" type="text/css">
+  <meta name="description" content="Watch a computer AI play 2048 on its own. Pick its strategy, speed and tile generator.">
+  <meta name="theme-color" content="#faf8ef">
+  <link href="style/main.css" rel="stylesheet">
 </head>
 <body>
- 
-  <script src="./2048 AI_files/jquery-1.10.2.min.js"></script>
-  <div class="container">
-    <div class="heading">
-      <h1 class="title">2048 AI</h1>
-      <div class="scores-container">
-        <div class="score-container">0<div class="score-addition">+0</div></div>
-        <div class="best-container">0</div>
+  <main class="app ai" id="app" data-sides="2">
+    <header class="head" data-col="1">
+      <h1 class="title">2048 <span class="ai-badge">AI</span></h1>
+      <div class="scores">
+        <div class="score-box"><span class="label">Score</span><div class="score-container value">0</div></div>
+        <div class="score-box"><span class="label">Best</span><div class="best-container value">0</div></div>
+      </div>
+    </header>
+
+    <div class="ctrl" data-col="1">
+      <button type="button" class="pause-button btn" aria-pressed="false">Pause</button>
+      <button type="button" class="new-game-button btn btn-light">New game</button>
+    </div>
+
+    <div class="stage">
+      <div class="game-container" aria-label="Game board, played by the AI">
+        <div class="game-message" aria-live="polite">
+          <p></p>
+          <div class="lower">
+            <button type="button" class="retry-button btn">Start now</button>
+          </div>
+          <div class="next-game"></div>
+        </div>
+
+        <div class="grid-container">
+          <div class="grid-row"><div class="grid-cell"></div><div class="grid-cell"></div><div class="grid-cell"></div><div class="grid-cell"></div></div>
+          <div class="grid-row"><div class="grid-cell"></div><div class="grid-cell"></div><div class="grid-cell"></div><div class="grid-cell"></div></div>
+          <div class="grid-row"><div class="grid-cell"></div><div class="grid-cell"></div><div class="grid-cell"></div><div class="grid-cell"></div></div>
+          <div class="grid-row"><div class="grid-cell"></div><div class="grid-cell"></div><div class="grid-cell"></div><div class="grid-cell"></div></div>
+        </div>
+
+        <div class="tile-container"></div>
+        <div class="paused-badge">Paused</div>
       </div>
     </div>
 
-    <div class="above-game">
-      <p>Watch the AI join the numbers and reach the highest tile it can!</p>
-    </div>
-
-    <div class="game-container">
-      <div class="game-message">
-        <p></p>
-        <div class="lower">
-	        <a class="keep-playing-button">Keep going</a>
-          <a class="retry-button">Try again</a>
+    <section class="settings" data-col="2" aria-label="AI settings">
+      <div class="group">
+        <div class="group-label">AI mode</div>
+        <div class="seg seg-4" role="radiogroup" aria-label="AI mode">
+          <label title="Looks ahead and scores each possible move"><input type="radio" name="ai-mode" class="smart-ai-button" value="3" checked><span>Smart</span></label>
+          <label title="Up, Left, Up, Left, and so on"><input type="radio" name="ai-mode" class="algorithm-ai-button" value="2"><span>Algorithm</span></label>
+          <label title="Up, then Left, then Right, then Down"><input type="radio" name="ai-mode" class="priority-ai-button" value="1"><span>Priority</span></label>
+          <label title="Picks a random direction"><input type="radio" name="ai-mode" class="rng-ai-button" value="0"><span>Random</span></label>
         </div>
       </div>
-
-      <div class="grid-container">
-        <div class="grid-row">
-          <div class="grid-cell"></div>
-          <div class="grid-cell"></div>
-          <div class="grid-cell"></div>
-          <div class="grid-cell"></div>
-        </div>
-        <div class="grid-row">
-          <div class="grid-cell"></div>
-          <div class="grid-cell"></div>
-          <div class="grid-cell"></div>
-          <div class="grid-cell"></div>
-        </div>
-        <div class="grid-row">
-          <div class="grid-cell"></div>
-          <div class="grid-cell"></div>
-          <div class="grid-cell"></div>
-          <div class="grid-cell"></div>
-        </div>
-        <div class="grid-row">
-          <div class="grid-cell"></div>
-          <div class="grid-cell"></div>
-          <div class="grid-cell"></div>
-          <div class="grid-cell"></div>
+      <div class="group">
+        <div class="group-label">Speed</div>
+        <div class="seg seg-3" role="radiogroup" aria-label="Speed">
+          <label><input type="radio" name="ai-speed" class="slow-speed-button" value="2"><span>Slow</span></label>
+          <label><input type="radio" name="ai-speed" class="fast-speed-button" value="1" checked><span>Fast</span></label>
+          <label><input type="radio" name="ai-speed" class="full-speed-button" value="0"><span>Full</span></label>
         </div>
       </div>
-
-      <div class="tile-container"></div>
-      
-      <div class="ai-panel">
-        <a class="pause-button">Pause</a>
-        <div class="ai-panel-header">AI mode:</div>
-        <label title="Looks ahead and scores each possible move"><input type="radio" name="ai-mode" class="smart-ai-button" checked="">Smart</label><br>
-        <label title="Up, Left, Up, Left, etc."><input type="radio" name="ai-mode" class="algorithm-ai-button">Algorithm-based</label><br>
-        <label title="Up &gt; Left &gt; Right &gt; Down"><input type="radio" name="ai-mode" class="priority-ai-button">Priority-based</label><br>
-        <label title="Picks a random direction"><input type="radio" name="ai-mode" class="rng-ai-button">Random</label><br>
-        <div class="ai-panel-header">Speed:</div>
-        <label><input type="radio" name="ai-speed" class="full-speed-button">Full</label><br>
-        <label><input type="radio" name="ai-speed" class="fast-speed-button" checked="">Fast</label><br>
-        <label><input type="radio" name="ai-speed" class="slow-speed-button">Slow</label><br>
-        <div class="ai-panel-header">Tile generator:</div>
-        <label><input type="radio" name="ai-tilegen" class="random-tile-button" checked="">Random</label><br>
-        <label><input type="radio" name="ai-tilegen" class="evil-tile-button">Evil</label><br>
-        <div class="ai-panel-header">Highest numbers:</div>
-        <div class="stats-container"></div>
-        
+      <div class="group">
+        <div class="group-label">New tiles</div>
+        <div class="seg seg-2" role="radiogroup" aria-label="Tile generator">
+          <label title="New tiles appear in random empty cells"><input type="radio" name="ai-tilegen" class="random-tile-button" value="0" checked><span>Random</span></label>
+          <label title="New tiles are placed where they hurt the most"><input type="radio" name="ai-tilegen" class="evil-tile-button" value="1"><span>Evil</span></label>
+        </div>
       </div>
-    </div>
+    </section>
 
+    <section class="stats-panel" data-col="1" aria-label="Highest tile per game">
+      <div class="group-label">Highest tile per game <span class="games-count"></span></div>
+      <div class="stats-container"></div>
+    </section>
+  </main>
 
-    <div class="copy-json"></div>
-  </div>
-
-  <script src="./2048 AI_files/bind_polyfill.js"></script>
-  <script src="./2048 AI_files/classlist_polyfill.js"></script>
-  <script src="./2048 AI_files/animframe_polyfill.js"></script>
-  <script src="./2048 AI_files/basic_ai.js"></script>
-  <script src="./2048 AI_files/smart_ai.js"></script>
-  <script src="./2048 AI_files/ai_input_manager.js"></script>
-  <script src="./2048 AI_files/html_actuator.js"></script>
-  <script src="./2048 AI_files/grid.js"></script>
-  <script src="./2048 AI_files/tile.js"></script>
-  <script src="./2048 AI_files/local_storage_manager.js"></script>
-  <script src="./2048 AI_files/game_manager.js"></script>
-  <script src="./2048 AI_files/application.js"></script>
-
-
-</body></html>
+  <script src="js/layout.js"></script>
+  <script src="js/basic_ai.js"></script>
+  <script src="js/smart_ai.js"></script>
+  <script src="js/ai_input_manager.js"></script>
+  <script src="js/html_actuator.js"></script>
+  <script src="js/grid.js"></script>
+  <script src="js/tile.js"></script>
+  <script src="js/local_storage_manager.js"></script>
+  <script src="js/game_manager.js"></script>
+  <script src="js/application.js"></script>
+</body>
+</html>

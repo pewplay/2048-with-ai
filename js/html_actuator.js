@@ -37,10 +37,6 @@ HTMLActuator.prototype.actuate = function (grid, metadata) {
 
 // Continues the game (both restart and keep playing)
 HTMLActuator.prototype.continueGame = function () {
-  if (typeof ga !== "undefined") {
-    ga("send", "event", "game", "restart");
-  }
-
   this.clearMessage();
 };
 
@@ -132,10 +128,6 @@ HTMLActuator.prototype.message = function (won) {
   var type    = won ? "game-won" : "game-over";
   var message = won ? "AI wins!" : "Game over!";
 
-  if (typeof ga !== "undefined") {
-    ga("send", "event", "game", "end", type, this.score);
-  }
-
   this.messageContainer.classList.add(type);
   this.messageContainer.getElementsByTagName("p")[0].textContent = message;
 };
@@ -144,16 +136,4 @@ HTMLActuator.prototype.clearMessage = function () {
   // IE only takes one value to remove at a time.
   this.messageContainer.classList.remove("game-won");
   this.messageContainer.classList.remove("game-over");
-};
-
-HTMLActuator.prototype.rebuildGrid = function (size) {
-  var grid_html = "";
-  for (var i = 0; i < size; i++) {
-    grid_html += "<div class='grid-row'>";
-    for (var j = 0; j < size; j++) {
-      grid_html += "<div class='grid-cell'></div>";
-    }
-    grid_html += "</div>";
-  }
-  $(".grid-container").html(grid_html);
 };

@@ -215,6 +215,7 @@ function GameManager(size, InputManager, Actuator, StorageManager) {
   this.inputManager.game = this;
 
   this.setup();
+  if (this.inputManager.ready) this.inputManager.ready();
 }
 
 // GameManager inherits from GameController
